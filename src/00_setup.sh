@@ -1,4 +1,5 @@
 #!/bin/bash
+# 00_setup.sh
 source vars
 
 ## enable APIS ------------------------------------------------------------------
@@ -23,7 +24,6 @@ source vars
 # PROJECT_NUM=$(cat project-info.txt | sed -nre 's:.*projectNumber\: (.*):\1:p')
 # SVC_ACCOUNT="${PROJECT_NUM//\'/}-compute@developer.gserviceaccount.com"
 # gcloud projects add-iam-policy-binding $GOOGLE_CLOUD_PROJECT --member serviceAccount:$SVC_ACCOUNT --role roles/storage.objectAdmin
-
 
 ## copy data into GCS bucket ------------------------------------------------------------------
 # curl https://raw.githubusercontent.com/justinjm/XXXXXXXXXXX.csv | gsutil cp - gs://${BUCKET}/XXXXX.csv

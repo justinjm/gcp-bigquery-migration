@@ -25,26 +25,6 @@ git clone https://github.com/justinjm/gcp-bigquery-migration.git
 
 ### Steps 
 
-#### Enable APIs
-
-1. [In the GCP Cloud Shell](https://console.cloud.google.com/home/dashboard?cloudshell=true), run the commands below.
-
-```sh
-export PROJECT=$DEVSHELL_PROJECT_ID
-
-gcloud services enable aiplatform.googleapis.com --project $PROJECT_ID
-gcloud services enable artifactregistry.googleapis.com --project $PROJECT_ID
-gcloud services enable bigquerystorage.googleapis.com --project $PROJECT_ID
-gcloud services enable cloudbuild.googleapis.com --project $PROJECT_ID
-gcloud services enable clouddeploy.googleapis.com --project $PROJECT_ID
-gcloud services enable container.googleapis.com --project $PROJECT_ID
-gcloud services enable containerregistry.googleapis.com --project $PROJECT_ID
-gcloud services enable monitoring.googleapis.com --project $PROJECT_ID
-gcloud services enable notebooks.googleapis.com --project $PROJECT_ID
-gcloud services enable run.googleapis.com --project $PROJECT_ID
-```
-
-
 ## References
 
 * [GCP SDK](https://cloud.google.com/sdk/docs/)  
