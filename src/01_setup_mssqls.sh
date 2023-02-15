@@ -1,8 +1,8 @@
 #!/bin/bash
 source vars
 
-
 ## create instnance
+## https://cloud.google.com/sql/docs/sqlserver/create-instance
 # gcloud sql instances create myinstance \
 # --database-version=SQLSERVER_2017_STANDARD \
 # --cpu=2 \
