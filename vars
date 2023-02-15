@@ -1,0 +1,7 @@
+export LOCATION=us-central1
+export PROJECT_ID=demos-vertex-ai
+export BUCKET=demos-vertex-ai-gcp-bq-migration
+export REPO_NAME=demo-repo-name
+export IMAGE_NAME=demo-image-name 
+export IMAGE_TAG=latest
+export IMAGE_URI=${LOCATION}-docker.pkg.dev/${PROJECT_ID}/${REPO_NAME}/${IMAGE_NAME}:${IMAGE_TAG}
