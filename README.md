@@ -1,6 +1,6 @@
 # Google BigQuery Migration 
 
-An example workflow for migrating data to BigQuery and validating with the Data Validation Tool (DVT)
+An example workflow for migrating data to BigQuery and validating with the Data Validation Tool ([DVT](https://github.com/GoogleCloudPlatform/professional-services-data-validator))
 
 ## References
 

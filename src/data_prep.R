@@ -1,7 +1,7 @@
 library(here)
 
-infile <- here("bq_migration", "loan_200k.csv")
-outfile <- here("bq_migration", "loan_200.csv")
+infile <- here("data", "loan_200k.csv")
+outfile <- here("data", "loan_200.csv")
 
 data_raw <- read.csv(file = infile)
 

@@ -212,6 +212,7 @@ output: `loans.sql`
 * upload loans.sql file to GCS bucket
 
 ```sh
+cd data
 gsutil cp loans.sql gs://demos-vertex-ai-bq-staging/loans.sql
 ```
 
