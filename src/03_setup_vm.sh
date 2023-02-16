@@ -10,8 +10,7 @@ gcloud compute instances create ${VM_INSTANCE_NAME} \
     --zone=us-central1-a \
     --machine-type=e2-medium \
     --network-interface=network-tier=PREMIUM,subnet=default \
-    --metadata=enable-oslogin=true \
-    # --metadata=startup-script='sudo apt-get update && sudo apt-get install -y git',enable-oslogin=true \ TODO - test
+    --metadata=startup-script='sudo apt-get update && sudo apt-get install -y git',enable-oslogin=true 
     --maintenance-policy=MIGRATE \
     --provisioning-model=STANDARD \
     --scopes=https://www.googleapis.com/auth/cloud-platform \
