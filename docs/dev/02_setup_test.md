@@ -49,3 +49,12 @@ gcloud sql import sql mssqls-instance gs://demos-vertex-ai-bq-staging/loans.sql 
   --database=test \
   --quiet 
 ```
+
+
+```sh
+bq load \
+    --autodetect=TRUE \
+    --skip_leading_rows=1 \
+    dvt_demo.loan_201 \
+    gs://demos-vertex-ai-gcp-bq-migration/loan_201.csv
+```
