@@ -3,25 +3,41 @@
 source args
 
 ## load data into MSSQL databse ---------------------------------
-
+### done in 00_setup
 ## upload loans.sql file to GCS bucket
-# cd data
-# gsutil cp loans.sql gs://demos-vertex-ai-bq-staging/loans.sql
+## upload loans_200.csv file to GCS bucket 
 
 ## get service account `serviceAccountEmailAddress:`
-# gcloud sql instances describe mssqls-instance
+echo "Getting service account from recently created instance"
+SVC_ACCOUNT_INSTANCE=$(gcloud sql instances describe ${INSTANCE_NAME} --format="value(serviceAccountEmailAddress)")
+echo $SVC_ACCOUNT_INSTANCE
 
-## grant service account access to GCS bucket (get service account from UI, instance overview page)
-# gsutil iam ch serviceAccount:p746038361521-irmwld@gcp-sa-cloud-sql.iam.gserviceaccount.com:objectAdmin \
-#   gs://demos-vertex-ai-bq-staging/
+## grant service account access to GCS bucket
+gsutil iam ch serviceAccount:${SVC_ACCOUNT_INSTANCE}:objectAdmin \
+  gs://${BUCKET}/
 
 ## execute load data (SQL file) to SQL instance from GCS 
-# gcloud sql import sql mssqls-instance gs://demos-vertex-ai-bq-staging/loans.sql \
-#   --database=demo
-# <https://cloud.google.com/sql/docs/sqlserver/import-export/import-export-sql#gcloud>
+gcloud sql import sql ${INSTANCE_NAME} gs://${BUCKET}/loans.sql \
+  --database=${DATABASE_NAME}
+# https://cloud.google.com/sql/docs/sqlserver/import-export/import-export-sql#gcloud
+# https://cloud.google.com/sdk/gcloud/reference/sql/import
 
 ## load data into BQ  ---------------------------------
 
 ### create dataset
+bq mk ${BQ_DATASET}
+
 ### create table - target table
+bq load ${BQ_DATASET}.${BQ_TABLE_DATA} \
+    --autodetect=TRUE \
+    --skip_leading_rows=1 \
+    gs://${BUCKET}/loan_200.csv
+# https://cloud.google.com/bigquery/docs/reference/bq-cli-reference#bq_load
+# https://cloud.google.com/bigquery/docs/bq-command-line-tool
+
 ### create results table - DVT tool output
+bq mk --table \
+  --time_partitioning_field start_time \
+  --clustering_fields validation_name,run_id \
+  ${BQ_DATASET}.${BQ_TABLE_DVT_RESULTS} \
+  results_schema.json

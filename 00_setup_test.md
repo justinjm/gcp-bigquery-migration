@@ -14,3 +14,7 @@ gcloud sql instances patch mssqls-instance \
 
 <https://cloud.google.com/sql/docs/sqlserver/start-stop-restart-instance>
 
+gcloud sql instances describe mssqls-2017 | grep "serviceAccountEmailAddress" > instance-test.txt
+
+
+

@@ -1,5 +1,10 @@
 export LOCATION=us-central1
 export PROJECT_ID=demos-vertex-ai
 export BUCKET=demos-vertex-ai-gcp-bq-migration
+export DATA_FILE_CSV=loans.sql
+export DATA_FILE_SQL=loan_200.csv
 export INSTANCE_NAME=mssqls-2017
 export DATABASE_NAME=demo
+export BQ_DATASET=dvt_demo
+export BQ_TABLE_DATA=loans
+export BQ_TABLE_DVT_RESULTS=results
