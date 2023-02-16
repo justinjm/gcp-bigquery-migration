@@ -6,6 +6,6 @@ export BUCKET=demos-vertex-ai-gcp-bq-migration
 export INSTANCE_NAME=mssqls-2017
 export DATABASE_NAME=demo
 export BQ_DATASET=dvt_demo
-export BQ_TABLE_DATA=loans
+export BQ_TABLE_DATA=loan_200k
 export BQ_TABLE_DVT_RESULTS=results
 export VM_INSTANCE_NAME=dvt
