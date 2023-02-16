@@ -30,13 +30,13 @@ gcloud config set project demos-vertex-ai
 2. Setup MSSQL Server `01_setup_mssqls.sh`
 3. Load data into MSSQLS and BQ   `02_setup_data.sh`
 4. Setup VM for DVT - run `03_setup_vm.sh`
-5. install DVT tool on VM 
+5. install DVT tool on VM - open `docs/04_install_dvt.md`
    1. SSH into instance
-   2. git clone this repository
-   3. run `04_install_dvt.sh`
+   2. git clone this repository 
+   3. run script `source 04_install_dvt.sh`
 6. Setup DVT connections and run example validations - open `docs/05_dvt_examples.md` in seperate browser window and copy/paste
-   2. add connections
-   3. run validations* view results (BQ and Looker Studio Dashboard)
+   1. add connections
+   2. run validations* view results (BQ and Looker Studio Dashboard)
 
 
 ### Steps 
