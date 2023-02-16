@@ -25,7 +25,7 @@ gcloud projects add-iam-policy-binding ${PROJECT_ID} --member serviceAccount:$SV
 
 ## copy data into GCS bucket ------------------------------------------------------------------
 curl https://raw.githubusercontent.com/justinjm/gcp-bigquery-migration/main/data/loans.sql | gsutil cp - gs://${BUCKET}/loans.sql
-curl https://raw.githubusercontent.com/justinjm/gcp-bigquery-migration/main/data/loan_200k.csv | gsutil cp - gs://${BUCKET}/loan_200k.csv
+# curl https://raw.githubusercontent.com/justinjm/gcp-bigquery-migration/main/data/loan_200k.csv | gsutil cp - gs://${BUCKET}/loan_200k.csv
 curl https://raw.githubusercontent.com/justinjm/gcp-bigquery-migration/main/data/loan_201.csv | gsutil cp - gs://${BUCKET}/loan_201.csv
 
 
