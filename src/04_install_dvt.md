@@ -70,6 +70,8 @@ Initialize gcloud
 gcloud config set project demos-vertex-ai
 ```
 
+add connection to BQ
+
 ```sh
 data-validation connections add \
     --connection-name MY_BQ_CONN BigQuery \

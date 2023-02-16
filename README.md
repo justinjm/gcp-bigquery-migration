@@ -34,9 +34,10 @@ gcloud config set project demos-vertex-ai
    1. SSH into instance
    2. git clone this repository 
    3. run script `source 04_install_dvt.sh`
-6. Setup DVT connections and run example validations - open `docs/05_dvt_examples.md` in seperate browser window and copy/paste
+6. Setup DVT connections and run example validations 
    1. add connections
    2. run validations* view results (BQ and Looker Studio Dashboard)
+7. Run DVT Examples - open `docs/05_dvt_examples.md` in seperate browser window and copy/paste
 
 
 ### Steps 
