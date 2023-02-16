@@ -1,3 +1,4 @@
+#!/bin/bash
 
 # install dependencies 
 sudo apt-get update
@@ -12,6 +13,7 @@ source env/bin/activate
 pip install google-pso-data-validator 
 
 # Install below  packages required for MSSQL
+## install MSSQL ODBC Driver
 sudo su
 curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
 #Debian 11
@@ -29,3 +31,5 @@ sudo apt-get install -y unixodbc-dev
 # optional: kerberos library for debian-slim distributions
 sudo apt-get install -y libgssapi-krb5-2
 
+## install python ODBC driver 
+pip install pyodbc
