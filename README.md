@@ -19,9 +19,18 @@ git clone https://github.com/justinjm/gcp-bigquery-migration.git
 
 ### Summary
 
-1. run `00_setup.sh` 
-2. run `01_prepare data.sh` 
-3. 
+1. Setup GCP environment `00_setup.sh` 
+2. Setup MSSQL Server `01_setup_mssqls.sh`
+3. Load data into MSSQLS and BQ   `02_setup_data.sh`
+4. Setup VM for DVT - run `03_setup_vm.sh`
+5. install DVT tool on VM 
+   1. SSH into instance
+   2. git clone this repository
+   3. run `04_install_dvt.sh`
+6. Setup DVT connections and run example validations - open `docs/05_dvt_examples.md` in seperate browser window and copy/paste
+   2. add connections
+   3. run validations* view results (BQ and Looker Studio Dashboard)
+
 
 ### Steps 
 
