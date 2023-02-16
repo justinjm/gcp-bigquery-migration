@@ -22,9 +22,8 @@ source env/bin/activate
 ```sh
 data-validation validate column \
     --source-conn MY_MSSQL_CONN --target-conn MY_BQ_CONN \
-    --tables-list demo.demo.loans=demos-vertex-ai.dvt_demo.loans201 \ # NOT SETUP IN THIS REPO TODO - SETUP??
+    --tables-list demo.demo.loans=demos-vertex-ai.dvt_demo.loan_201 \
     --count '*' \
     --bq-result-handler demos-vertex-ai.dvt_demo.results \
     --labels tag=loans-loans201
 ```
-
