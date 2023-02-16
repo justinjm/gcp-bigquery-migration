@@ -10,7 +10,7 @@ An example workflow for migrating data to BigQuery and validating with the Data 
 
 [![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ssh.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/justinjm/gcp-bigquery-migration)
 
-then authenticate with `gcloud`: 
+then authenticate with `gcloud`:
 
 ```sh
 gcloud config set project <YOUR-PROJECT-ID>
@@ -18,11 +18,7 @@ gcloud config set project <YOUR-PROJECT-ID>
 
 ### Other 
 
-If you know what you are doing, you can also clone this repository on your local machine or GCE VM and proceed:
-
-```sh
-git clone https://github.com/justinjm/gcp-bigquery-migration.git 
-```
+If you know what you are doing, you can also clone this repository on your local machine or GCE VM and proceed with the workflow steps below.
 
 ## Workflow steps
 
