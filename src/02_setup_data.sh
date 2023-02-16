@@ -17,8 +17,10 @@ gsutil iam ch serviceAccount:${SVC_ACCOUNT_INSTANCE}:objectAdmin \
   gs://${BUCKET}/
 
 ## execute load data (SQL file) to SQL instance from GCS 
+## quiet flag so script runs without prompt interrupting
 gcloud sql import sql ${INSTANCE_NAME} gs://${BUCKET}/loans.sql \
-  --database=${DATABASE_NAME}
+  --database=${DATABASE_NAME} \
+  --quiet 
 # https://cloud.google.com/sql/docs/sqlserver/import-export/import-export-sql#gcloud
 # https://cloud.google.com/sdk/gcloud/reference/sql/import
 

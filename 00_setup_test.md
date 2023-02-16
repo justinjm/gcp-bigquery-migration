@@ -36,3 +36,16 @@ gcloud compute instances describe data-validator --format='get(networkInterfaces
 VM_INSTANCE_IP=$(gcloud compute instances describe data-validator --format='get(networkInterfaces[0].accessConfigs[0].natIP)')
 echo $VM_INSTANCE_IP
 ```
+
+
+```
+gcloud sql instances patch mssqls-instance \
+    --quiet \
+    --authorized-networks=34.134.160.245
+```
+
+```sh
+gcloud sql import sql mssqls-instance gs://demos-vertex-ai-bq-staging/loans.sql \
+  --database=test \
+  --quiet 
+```

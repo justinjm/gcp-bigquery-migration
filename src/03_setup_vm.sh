@@ -30,6 +30,7 @@ echo "VM IP:" $VM_INSTANCE_IP
 ## add VM IP address to MSSQL instance
 echo "Adding IP to MSSQL Server instance ${INSTANCE_NAME}..."
 gcloud sql instances patch ${INSTANCE_NAME} \
+    --quiet \
     --authorized-networks=${VM_INSTANCE_IP}
 # https://cloud.google.com/sql/docs/sqlserver/configure-ip
 # https://cloud.google.com/sql/docs/sqlserver/connect-admin-ip
