@@ -2,18 +2,13 @@
 
 An example workflow for migrating data to BigQuery and validating with the Data Validation Tool ([DVT](https://github.com/GoogleCloudPlatform/professional-services-data-validator))
 
-
 ## How to use 
 
-Recommendation: clone this repository in Cloud Shell 
+### Recommendation: Cloud Shell
+
+ Clone this repository in Cloud Shell
 
 [![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ssh.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/justinjm/gcp-bigquery-migration)
-
-You can also clone this repository on your local machine or GCE VM:
-
-```sh
-git clone https://github.com/justinjm/gcp-bigquery-migration.git 
-```
 
 then authenticate with `gcloud`: 
 
@@ -21,23 +16,32 @@ then authenticate with `gcloud`:
 gcloud config set project <YOUR-PROJECT-ID>
 ```
 
+### Other 
 
-## Setup 
+If you know what you are doing, you can also clone this repository on your local machine or GCE VM and proceed:
 
-### Summary
+```sh
+git clone https://github.com/justinjm/gcp-bigquery-migration.git 
+```
 
-1. Setup GCP environment `00_setup.sh` 
-2. Setup MSSQL Server `01_setup_mssqls.sh`
-3. Load data into MSSQLS and BQ   `02_setup_data.sh`
-4. Setup VM for DVT - run `03_setup_vm.sh`
-5. install DVT tool on VM - open `docs/04_install_dvt.md` for instructions 
+## Workflow steps
+
+1. Update `src/args` file 
+   1. Update `PROJECT_ID` with `YOUR-PROJECT-ID`
+   2. Update `BUCKET` with `YOUR-BUCKET-NAME`
+2. Setup GCP environment `00_setup.sh` 
+3. Setup MSSQL Server `01_setup_mssqls.sh`
+4. Load data into MSSQLS and BQ   `02_setup_data.sh`
+5. Setup VM for DVT - run `03_setup_vm.sh`
+6. install DVT tool on VM - open `docs/04_install_dvt.md` for instructions 
    1. SSH into instance
-   2. git clone this repository 
-   3. run script `source 04_install_dvt.sh`
-6. Setup DVT connections and run example validations 
+   2. git clone this repository
+   3. Update `src/args` file (same as #1)
+   4. run script `source 04_install_dvt.sh`
+7. Setup DVT connections and run example validations
    1. add connections
    2. run validations* view results (BQ and Looker Studio Dashboard)
-7. Run DVT Examples - open `docs/05_dvt_examples.md` in seperate browser window and copy/paste
+8. Run DVT Examples - open `docs/05_dvt_examples.md` in seperate browser window and copy/paste
 
 
 ### Steps 

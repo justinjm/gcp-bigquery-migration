@@ -1,8 +1,8 @@
 library(here)
 
-infile <- here("data", "loan_200k.csv")
-outfile <- here("data", "loan_200.csv")
-outfile_201 <- here("data", "loan_201.csv")
+infile <- here("data", "loan_200k_raw.csv") # original 
+outfile <- here("data", "loan_200k.csv") # all 200k rows
+outfile_201 <- here("data", "loan_201.csv") # only first 201 rows
 
 data_raw <- read.csv(file = infile)
 names(data_raw)
@@ -14,7 +14,7 @@ write.csv(data_out,
           file = outfile,
           row.names = FALSE)
 
-data_out_201 <- data_out[1:200,]
+data_out_201 <- data_out[1:20,]
 nrow(data_out_201)
 
 write.csv(data_out_201,
