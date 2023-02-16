@@ -1,6 +1,6 @@
 #!/bin/bash
 # 01_setup_mssqls.sh
-source vars
+source args
 
 ## create instnance
 ## https://cloud.google.com/sql/docs/sqlserver/create-instance
@@ -20,3 +20,8 @@ source vars
 #     --password=PASSWORD
 
 ## create database 
+# gcloud sql databases create DATABASE_NAME \
+#     --instance=INSTANCE_NAME \
+#     [--charset=CHARSET] \
+#     [--collation=COLLATION]
+# https://cloud.google.com/sql/docs/sqlserver/create-manage-databases#gcloud

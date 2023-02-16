@@ -1,6 +1,6 @@
 #!/bin/bash
 # 00_setup.sh
-source vars
+source args
 
 ## enable APIS ------------------------------------------------------------------
 # gcloud services enable aiplatform.googleapis.com
