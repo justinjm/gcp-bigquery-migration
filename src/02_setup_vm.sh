@@ -1,6 +1,6 @@
 #!/bin/bash
 # 02_setup_vm.sh 
-source vars
+source args
 
 
 
