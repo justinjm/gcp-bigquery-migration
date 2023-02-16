@@ -1,6 +1,8 @@
 # 04_install_dvt
 
-See official [installation](https://github.com/GoogleCloudPlatform/professional-services-data-validator/blob/develop/docs/installation.md) guide for more details.
+Instructions for installing [DVT](https://github.com/GoogleCloudPlatform/professional-services-data-validator) with the script `04_install_dvt.sh` on a VM (created via `03_setup_vm.sh`).
+
+See official [installation](https://github.com/GoogleCloudPlatform/professional-services-data-validator/blob/develop/docs/installation.md) guide in DVT documentation for more details.
 
 ## 1. SSH into instance and clone this repository
 
@@ -10,7 +12,7 @@ git clone https://github.com/justinjm/gcp-bigquery-migration && cd gcp-bigquery-
 
 ## 2. install DVT and dependencies
 
-run `04_install_dvt.sh` to install DVT and necessary dependencies 
+run `04_install_dvt.sh` to install DVT and necessary dependencies:
 
 ```sh
 source 04_install_dvt.sh
