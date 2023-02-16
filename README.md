@@ -15,6 +15,13 @@ You can also clone this repository on your local machine or GCE VM:
 git clone https://github.com/justinjm/gcp-bigquery-migration.git 
 ```
 
+then authenticate with `gcloud`: 
+
+```sh
+gcloud config set project demos-vertex-ai 
+```
+
+
 ## Setup 
 
 ### Summary
