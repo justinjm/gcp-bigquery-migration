@@ -41,6 +41,6 @@ bq load \
     --autodetect=TRUE \
     --skip_leading_rows=1 \
     ${BQ_DATASET}.${BQ_TABLE_DATA} \
-    gs://${BUCKET}/loan_200.csv
+    gs://${BUCKET}/loan_200k.csv
 # https://cloud.google.com/bigquery/docs/reference/bq-cli-reference#bq_load
 # https://cloud.google.com/bigquery/docs/bq-command-line-tool
