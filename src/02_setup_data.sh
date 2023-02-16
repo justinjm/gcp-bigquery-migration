@@ -27,17 +27,18 @@ gcloud sql import sql ${INSTANCE_NAME} gs://${BUCKET}/loans.sql \
 ### create dataset
 bq mk ${BQ_DATASET}
 
-### create table - target table
-bq load ${BQ_DATASET}.${BQ_TABLE_DATA} \
-    --autodetect=TRUE \
-    --skip_leading_rows=1 \
-    gs://${BUCKET}/loan_200.csv
-# https://cloud.google.com/bigquery/docs/reference/bq-cli-reference#bq_load
-# https://cloud.google.com/bigquery/docs/bq-command-line-tool
-
 ### create results table - DVT tool output
 bq mk --table \
   --time_partitioning_field start_time \
   --clustering_fields validation_name,run_id \
   ${BQ_DATASET}.${BQ_TABLE_DVT_RESULTS} \
   results_schema.json
+
+### create table - target table
+bq load \
+    --autodetect=TRUE \
+    --skip_leading_rows=1 \
+    ${BQ_DATASET}.${BQ_TABLE_DATA} \
+    gs://${BUCKET}/loan_200.csv
+# https://cloud.google.com/bigquery/docs/reference/bq-cli-reference#bq_load
+# https://cloud.google.com/bigquery/docs/bq-command-line-tool
