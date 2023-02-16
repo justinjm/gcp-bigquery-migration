@@ -1,4 +1,5 @@
 export LOCATION=us-central1
 export PROJECT_ID=demos-vertex-ai
 export BUCKET=demos-vertex-ai-gcp-bq-migration
-export INSTANCE_NAME=mssqls-instance
+export INSTANCE_NAME=mssqls-2017
+export DATABASE_NAME=demo

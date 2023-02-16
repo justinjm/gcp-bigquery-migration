@@ -2,12 +2,6 @@
 # 03_setup_data.sh
 source args
 
-## load data into BQ  ---------------------------------
-
-### create dataset
-### create table - target table
-### create results table - DVT tool output
-
 ## load data into MSSQL databse ---------------------------------
 
 ## upload loans.sql file to GCS bucket
@@ -21,9 +15,13 @@ source args
 # gsutil iam ch serviceAccount:p746038361521-irmwld@gcp-sa-cloud-sql.iam.gserviceaccount.com:objectAdmin \
 #   gs://demos-vertex-ai-bq-staging/
 
-
-
 ## execute load data (SQL file) to SQL instance from GCS 
 # gcloud sql import sql mssqls-instance gs://demos-vertex-ai-bq-staging/loans.sql \
 #   --database=demo
 # <https://cloud.google.com/sql/docs/sqlserver/import-export/import-export-sql#gcloud>
+
+## load data into BQ  ---------------------------------
+
+### create dataset
+### create table - target table
+### create results table - DVT tool output
