@@ -4,7 +4,7 @@
 * git clone this repository 
 
 ```sh
-git clone https://github.com/justinjm/gcp-bigquery-migration && cd src
+git clone https://github.com/justinjm/gcp-bigquery-migration && cd gcp-bigquery-migration/src
 ```
 
 run `04_install_dvt.sh`
