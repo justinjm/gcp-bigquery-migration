@@ -1,22 +1,31 @@
 #!/bin/bash
 
 # install dependencies 
+echo "install dependencies..."
 sudo apt-get update
 sudo apt-get install -yq git python3 python3-pip python3-distutils
 sudo pip install --upgrade pip virtualenv
 
 # activate venv 
+echo "activate venv..."
 virtualenv -p python3 env
 source env/bin/activate
 
 # Install DVT
+echo "Install DVT"
 pip install google-pso-data-validator 
 
 # Install below  packages required for MSSQL
 ## install MSSQL ODBC Driver
-sudo curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+echo "install MSSQL ODBC Driver"
+sudo su << EOF 
+
+curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
 #Debian 11
-sudo curl https://packages.microsoft.com/config/debian/11/prod.list > /etc/apt/sources.list.d/mssql-release.list
+curl https://packages.microsoft.com/config/debian/11/prod.list > /etc/apt/sources.list.d/mssql-release.list
+
+exit 
+EOF 
 
 sudo apt-get update
 sudo ACCEPT_EULA=Y apt-get install -y msodbcsql17
