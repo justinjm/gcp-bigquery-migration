@@ -58,3 +58,27 @@ bq load \
     dvt_demo.loan_201 \
     gs://demos-vertex-ai-gcp-bq-migration/loan_201.csv
 ```
+
+
+## 2023-02-17
+
+
+```sh
+source args 
+gsutil cp ../data/loan_200k.sql gs://${BUCKET}/loan_200k.sql
+
+```
+
+instance: 
+db: demo200k
+
+load 
+
+```sh
+source args 
+gcloud sql import sql ${INSTANCE_NAME} gs://${BUCKET}/${DATA_FILE_SQL} \
+  --database=${DATABASE_NAME} \
+  --quiet
+```
+
+

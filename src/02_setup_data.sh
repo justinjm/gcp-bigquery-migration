@@ -6,14 +6,15 @@ source args
 ### staging area for loading into MSSQL and BigQuery 
 
 ## copy data into GCS bucket ------------------------------------------------------------------
-# curl https://raw.githubusercontent.com/justinjm/gcp-bigquery-migration/main/data/${DATA_FILE_SQL} | gsutil cp - gs://${BUCKET}/${DATA_FILE_SQL}
-# curl https://raw.githubusercontent.com/justinjm/gcp-bigquery-migration/main/data/${DATA_FILE_CSV} | gsutil cp - gs://${BUCKET}/${DATA_FILE_CSV}
+curl https://raw.githubusercontent.com/justinjm/gcp-bigquery-migration/main/data/${DATA_FILE_SQL} | gsutil cp - gs://${BUCKET}/${DATA_FILE_SQL}
+curl https://raw.githubusercontent.com/justinjm/gcp-bigquery-migration/main/data/${DATA_FILE_CSV} | gsutil cp - gs://${BUCKET}/${DATA_FILE_CSV}
 
 ### testing 
-curl https://raw.githubusercontent.com/justinjm/gcp-bigquery-migration/main/data/loan_201.sql | gsutil cp - gs://${BUCKET}/loan_201.sql
-curl https://raw.githubusercontent.com/justinjm/gcp-bigquery-migration/main/data/loan_201.csv | gsutil cp - gs://${BUCKET}/loan_201.csv
+# curl https://raw.githubusercontent.com/justinjm/gcp-bigquery-migration/main/data/loan_201.sql | gsutil cp - gs://${BUCKET}/loan_201.sql
+# curl https://raw.githubusercontent.com/justinjm/gcp-bigquery-migration/main/data/loan_201.csv | gsutil cp - gs://${BUCKET}/loan_201.csv
 # curl https://raw.githubusercontent.com/justinjm/gcp-bigquery-migration/main/data/loan_200k.csv | gsutil cp - gs://${BUCKET}/loan_200k.csv
 # curl https://raw.githubusercontent.com/justinjm/gcp-bigquery-migration/main/data/loan_200k.sql | gsutil cp - gs://${BUCKET}/loan_200k.sql
+
 
 ## load data into MSSQL databse ---------------------------------
 
