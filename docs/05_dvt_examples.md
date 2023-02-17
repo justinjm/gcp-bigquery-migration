@@ -21,7 +21,7 @@ data-validation validate column \
     --source-conn MY_MSSQL_CONN --target-conn MY_BQ_CONN \
     --tables-list demo.demo.loans=${PROJECT_ID}.${BQ_DATASET}.${BQ_TABLE_DATA} \
     --count '*' \
-    --bq-result-handler ${PROJECT_ID}.${BQ_DATASET}.results \
+    --bq-result-handler ${PROJECT_ID}.${BQ_DATASET}.${BQ_TABLE_DVT_RESULTS} \
     --labels tag=loans-loans201-2023-02-17
 ```
 
@@ -34,7 +34,7 @@ data-validation validate row \
     --filter-status fail \
     --primary-keys id \
     --hash '*' \
-    --bq-result-handler ${PROJECT_ID}.${BQ_DATASET}.results
+    --bq-result-handler ${PROJECT_ID}.${BQ_DATASET}.${BQ_TABLE_DVT_RESULTS}
 ```
 
 ### 3) Run a row level comparison field validation for 10 random rows
@@ -46,7 +46,7 @@ data-validation validate row \
     --primary-keys id \
     -comp-fields member_id \
     -rr -rbs 10 \
-    --bq-result-handler ${PROJECT_ID}.${BQ_DATASET}.results
+    --bq-result-handler ${PROJECT_ID}.${BQ_DATASET}.${BQ_TABLE_DVT_RESULTS}
 ```
 
 
@@ -69,7 +69,7 @@ SELECT
   difference,
   start_time
 FROM
-  `${PROJECT_ID}.${BQ_DATASET}.results`
+  `${PROJECT_ID}.${BQ_DATASET}.${BQ_TABLE_DVT_RESULTS}`
   WHERE 
   source_agg_value=target_agg_value
 ORDER BY

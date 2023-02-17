@@ -38,7 +38,7 @@ If you know what you are doing, you can also clone this repository on your local
    1. open `docs/04_install_dvt.md` for instructions 
    2. SSH into instance
    3. git clone this repository
-   4. Update `src/args` file (same as #1)
+   4. Update `src/args` file (same as #1) 
    5. run script `source 04_install_dvt.sh`
 7. Setup DVT connections and run example validations
    1. add connections
@@ -52,5 +52,3 @@ If you know what you are doing, you can also clone this repository on your local
 * [GoogleCloudPlatform/professional-services-data-validator: Utility to compare data between homogeneous or heterogeneous environments to ensure source and target tables match](https://github.com/GoogleCloudPlatform/professional-services-data-validator)
 * [Automate Validation using the Data Validation Tool (DVT) | Google Cloud Skills Boost](https://www.cloudskillsboost.google/focuses/45997?parent=catalog)
 * [justinjm/google-cloud-scripts](https://github.com/justinjm/google-cloud-scripts)
-
-## Acknowledgements  
