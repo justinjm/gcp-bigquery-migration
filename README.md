@@ -1,6 +1,6 @@
 # Google BigQuery Migration 
 
-An example workflow for migrating data to BigQuery and validating with the Data Validation Tool ([DVT](https://github.com/GoogleCloudPlatform/professional-services-data-validator))
+An example workflow for migrating data to BigQuery and validating with the Data Validation Tool ([DVT](https://github.com/GoogleCloudPlatform/professional-services-data-validator)). Microsoft SQL Server on Google Cloud SQL is used as the source database that is being migrated from. 
 
 ## How to use
 

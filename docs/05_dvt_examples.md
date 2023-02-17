@@ -53,7 +53,7 @@ data-validation validate row \
 
 ### Viewing results in BigQuery 
 
-The DVT results table (specified in the `args` file) can be queried 
+The DVT results table (specified in the `args` file) can be queried (replacing the placeholder vars before running query in BQ console)
 
 ```sql
 SELECT
