@@ -1,4 +1,4 @@
-# data_prep.R ----------------------------------------------
+# 99_create_input_data_csv.R ----------------------------------------------
 ## so we don't have to worry about directory maddness
 library(here)
 
