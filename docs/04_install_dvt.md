@@ -10,6 +10,14 @@ See official [installation](https://github.com/GoogleCloudPlatform/professional-
 git clone https://github.com/justinjm/gcp-bigquery-migration && cd gcp-bigquery-migration/src
 ```
 
+## 1.1 Update args 
+
+Update the `args` file before proceeding with the same variables during the initial setup:
+
+```sh
+vi sh 
+```
+
 ## 2. install DVT and dependencies
 
 run `04_install_dvt.sh` to install DVT and necessary dependencies:
@@ -24,10 +32,11 @@ check install via:
 data-validation -h
 ```
 
-Note: if not in virtual environment, run the following to reactivate: 
+Note: if not in virtual environment, run the following to reactivate and re-source the `args` file:
 
 ```sh
 source env/bin/activate
+source args
 ```
 
 ## 3. create source and target connections
@@ -40,7 +49,7 @@ DVT doc: <https://github.com/GoogleCloudPlatform/professional-services-data-vali
 Get IP address of SQL instance for setting up DVT connection and save as global variable for re-use:
 
 ```sh 
-MSSQLS_IP=$(gcloud sql instances describe mssqls-2017 --format="value(ipAddresses[0].ipAddress)")
+MSSQLS_IP=$(gcloud sql instances describe ${INSTANCE_NAME} --format="value(ipAddresses[0].ipAddress)")
 ```
 
 #### create a connection to MS SQL Server Cloud SQL instance
@@ -52,7 +61,7 @@ data-validation connections add \
     --port 1433 \
     --user sqlserver \
     --password password123 \
-    --database demo
+    --database ${DATABASE_NAME}
 ```
 
 #### test connection by column validation (`COUNT(*)`)
@@ -66,24 +75,26 @@ data-validation validate column \
 
 ### bigquery
 
-Initialize gcloud
+Initialize gcloud first
 
 ```sh
-gcloud config set project demos-vertex-ai
+gcloud config set project ${PROJECT_ID}
 ```
 
-add connection to BQ
+then add connection to BQ
 
 ```sh
 data-validation connections add \
     --connection-name MY_BQ_CONN BigQuery \
-    --project-id demos-vertex-ai
+    --project-id ${PROJECT_ID}
 ```
 
 #### test connection by column validation (`COUNT(*)`)
 
+finally, check the connection works with a validation job:
+
 ```sh
 data-validation validate column \
   -sc MY_BQ_CONN -tc MY_BQ_CONN \
-  -tbls demos-vertex-ai.dvt_demo.loans
+  -tbls ${PROJECT_ID}.${BQ_DATASET}.${BQ_TABLE_DATA}
 ```

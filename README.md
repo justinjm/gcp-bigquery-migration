@@ -27,18 +27,19 @@ If you know what you are doing, you can also clone this repository on your local
 
 ## Workflow steps
 
-1. Update `src/args` file 
-   1. Update `PROJECT_ID` with `YOUR-PROJECT-ID`
-   2. Update `BUCKET` with `YOUR-BUCKET-NAME`
+1. Update `src/args` file with the following: 
+   1. `PROJECT_ID` with `YOUR-PROJECT-ID`
+   2. `BUCKET` with `YOUR-BUCKET-NAME`
 2. Setup GCP environment `00_setup_env.sh`
 3. Setup MSSQL Server `01_setup_mssqls.sh`
-4. Load data into MSSQLS and BQ   `02_setup_data.sh`
-5. Setup VM for DVT - run `03_setup_vm.sh`
-6. install DVT tool on VM - open `docs/04_install_dvt.md` for instructions 
-   1. SSH into instance
-   2. git clone this repository
-   3. Update `src/args` file (same as #1)
-   4. run script `source 04_install_dvt.sh`
+4. Load data into GCS then MSSQLS and BQ  `02_setup_data.sh`
+5. Setup VM for DVT `03_setup_vm.sh`
+6. install DVT tool on VM
+   1. open `docs/04_install_dvt.md` for instructions 
+   2. SSH into instance
+   3. git clone this repository
+   4. Update `src/args` file (same as #1)
+   5. run script `source 04_install_dvt.sh`
 7. Setup DVT connections and run example validations
    1. add connections
    2. run validations* view results (BQ and Looker Studio Dashboard)
