@@ -2,13 +2,18 @@
 
 An example workflow for migrating data to BigQuery and validating with the Data Validation Tool ([DVT](https://github.com/GoogleCloudPlatform/professional-services-data-validator))
 
-## How to use 
+## How to use
 
 ### Recommendation: Cloud Shell
 
- Clone this repository in Cloud Shell
+Clone this repository in Cloud Shell
 
 [![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ssh.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/justinjm/gcp-bigquery-migration)
+
+Update variables in `args` file:
+
+1. `PROJECT_ID` with `YOUR-PROJECT-ID`  
+2. `BUCKET` with `YOUR-BUCKET-NAME`
 
 then authenticate with `gcloud`:
 
@@ -16,7 +21,7 @@ then authenticate with `gcloud`:
 gcloud config set project <YOUR-PROJECT-ID>
 ```
 
-### Other 
+### Other
 
 If you know what you are doing, you can also clone this repository on your local machine or GCE VM and proceed with the workflow steps below.
 
@@ -25,7 +30,7 @@ If you know what you are doing, you can also clone this repository on your local
 1. Update `src/args` file 
    1. Update `PROJECT_ID` with `YOUR-PROJECT-ID`
    2. Update `BUCKET` with `YOUR-BUCKET-NAME`
-2. Setup GCP environment `00_setup.sh` 
+2. Setup GCP environment `00_setup_env.sh`
 3. Setup MSSQL Server `01_setup_mssqls.sh`
 4. Load data into MSSQLS and BQ   `02_setup_data.sh`
 5. Setup VM for DVT - run `03_setup_vm.sh`
@@ -38,9 +43,6 @@ If you know what you are doing, you can also clone this repository on your local
    1. add connections
    2. run validations* view results (BQ and Looker Studio Dashboard)
 8. Run DVT Examples - open `docs/05_dvt_examples.md` in seperate browser window and copy/paste
-
-
-### Steps 
 
 ## References
 

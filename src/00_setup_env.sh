@@ -1,5 +1,5 @@
 #!/bin/bash
-# 00_setup.sh
+# 00_setup_env.sh
 source args
 
 ## enable APIS ------------------------------------------------------------------
