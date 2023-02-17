@@ -2,10 +2,20 @@
 # 03_setup_data.sh
 source args
 
+## load data into GCS  ---------------------------------
+### staging area for loading into MSSQL and BigQuery 
+
+## copy data into GCS bucket ------------------------------------------------------------------
+# curl https://raw.githubusercontent.com/justinjm/gcp-bigquery-migration/main/data/${DATA_FILE_SQL} | gsutil cp - gs://${BUCKET}/${DATA_FILE_SQL}
+# curl https://raw.githubusercontent.com/justinjm/gcp-bigquery-migration/main/data/${DATA_FILE_CSV} | gsutil cp - gs://${BUCKET}/${DATA_FILE_CSV}
+
+### testing 
+curl https://raw.githubusercontent.com/justinjm/gcp-bigquery-migration/main/data/loan_201.sql | gsutil cp - gs://${BUCKET}/loan_201.sql
+curl https://raw.githubusercontent.com/justinjm/gcp-bigquery-migration/main/data/loan_201.csv | gsutil cp - gs://${BUCKET}/loan_201.csv
+# curl https://raw.githubusercontent.com/justinjm/gcp-bigquery-migration/main/data/loan_200k.csv | gsutil cp - gs://${BUCKET}/loan_200k.csv
+# curl https://raw.githubusercontent.com/justinjm/gcp-bigquery-migration/main/data/loan_200k.sql | gsutil cp - gs://${BUCKET}/loan_200k.sql
+
 ## load data into MSSQL databse ---------------------------------
-### done in 00_setup
-## upload loans.sql file to GCS bucket
-## upload loans_200.csv file to GCS bucket 
 
 ## get service account `serviceAccountEmailAddress:`
 echo "Getting service account from recently created instance"
@@ -18,7 +28,8 @@ gsutil iam ch serviceAccount:${SVC_ACCOUNT_INSTANCE}:objectAdmin \
 
 ## execute load data (SQL file) to SQL instance from GCS 
 ## quiet flag so script runs without prompt interrupting
-gcloud sql import sql ${INSTANCE_NAME} gs://${BUCKET}/loans.sql \
+echo "Loading ${DATA_FILE_SQL} into ${DATABASE_NAME} database on ${INSTANCE_NAME} instance..."
+gcloud sql import sql ${INSTANCE_NAME} gs://${BUCKET}/${DATA_FILE_SQL} \
   --database=${DATABASE_NAME} \
   --quiet 
 # https://cloud.google.com/sql/docs/sqlserver/import-export/import-export-sql#gcloud
@@ -41,6 +52,6 @@ bq load \
     --autodetect=TRUE \
     --skip_leading_rows=1 \
     ${BQ_DATASET}.${BQ_TABLE_DATA} \
-    gs://${BUCKET}/loan_201.csv
+    gs://${BUCKET}/${DATA_FILE_CSV}
 # https://cloud.google.com/bigquery/docs/reference/bq-cli-reference#bq_load
 # https://cloud.google.com/bigquery/docs/bq-command-line-tool
