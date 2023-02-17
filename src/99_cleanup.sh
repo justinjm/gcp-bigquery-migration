@@ -1,12 +1,18 @@
 #!/bin/bash
+source args
 
-echo -n "Do you want to proceed? (y/n) "
+echo "Bucket: " ${BUCKET}
+echo "SQL instance: " ${INSTANCE_NAME}
+echo "VM instance: " ${VM_INSTANCE_NAME}
+echo "BigQuery dataset: " ${BQ_DATASET}
+
+echo -n "The resources above will be DELETED. Are you sure you want to proceed? (y/n) "
 read choice
 
 if [[ "$choice" =~ [yY](es)* ]]; then
     # Your code here
-    echo "Proceeding with the script..."
+    echo "Deleting resources..."
 else
-    echo "Exiting the script."
-    exit 0
+    echo "No resources deleted"
+    
 fi
