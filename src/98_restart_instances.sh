@@ -10,7 +10,7 @@ gcloud sql instances patch ${INSTANCE_NAME} \
 gcloud compute instances start ${VM_INSTANCE_NAME}
 
 ## get IP of VM 
-VM_INSTANCE_IP=$(gcloud compute instances describe data-validator --format='get(networkInterfaces[0].accessConfigs[0].natIP)')
+VM_INSTANCE_IP=$(gcloud compute instances describe ${VM_INSTANCE_NAME} --format='get(networkInterfaces[0].accessConfigs[0].natIP)')
 echo ${VM_INSTANCE_IP}
 
 ## add VM IP to MSSQL instance
