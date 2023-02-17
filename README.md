@@ -45,6 +45,14 @@ If you know what you are doing, you can also clone this repository on your local
    2. run validations* view results (BQ and Looker Studio Dashboard)
 8. Run DVT Examples - open `docs/05_dvt_examples.md` in seperate browser window and copy/paste
 
+## Cleanup
+
+To delete all the resources created by this example:
+
+1. open the script `src/99_cleanup.sh` in Cloud Shell 
+2. uncomment lines per the comments within
+3. run the script to delete the resources
+
 ## References
 
 * [GCP SDK](https://cloud.google.com/sdk/docs/)  
