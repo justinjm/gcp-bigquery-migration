@@ -12,9 +12,10 @@ names(data_out)
 
 write.csv(data_out,
           file = outfile,
+        #   quote = FALSE, # to reduce file size 
           row.names = FALSE)
 
-data_out_201 <- data_out[1:20,]
+data_out_201 <- data_out[1:201,]
 nrow(data_out_201)
 
 write.csv(data_out_201,
