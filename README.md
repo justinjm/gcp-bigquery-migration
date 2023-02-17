@@ -20,10 +20,15 @@ then authenticate with `gcloud`:
 ```sh
 gcloud config set project <YOUR-PROJECT-ID>
 ```
-
 ### Other
 
 If you know what you are doing, you can also clone this repository on your local machine or GCE VM and proceed with the workflow steps below.
+
+### Pre-requities 
+
+* A Google Cloud Platform project 
+* Billing enabled and Billing account 
+* Project Editor level access (recommended)
 
 ## Workflow steps
 
