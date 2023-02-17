@@ -9,15 +9,7 @@ source args
 curl https://raw.githubusercontent.com/justinjm/gcp-bigquery-migration/main/data/${DATA_FILE_SQL} | gsutil cp - gs://${BUCKET}/${DATA_FILE_SQL}
 curl https://raw.githubusercontent.com/justinjm/gcp-bigquery-migration/main/data/${DATA_FILE_CSV} | gsutil cp - gs://${BUCKET}/${DATA_FILE_CSV}
 
-### testing 
-# curl https://raw.githubusercontent.com/justinjm/gcp-bigquery-migration/main/data/loan_201.sql | gsutil cp - gs://${BUCKET}/loan_201.sql
-# curl https://raw.githubusercontent.com/justinjm/gcp-bigquery-migration/main/data/loan_201.csv | gsutil cp - gs://${BUCKET}/loan_201.csv
-# curl https://raw.githubusercontent.com/justinjm/gcp-bigquery-migration/main/data/loan_200k.csv | gsutil cp - gs://${BUCKET}/loan_200k.csv
-# curl https://raw.githubusercontent.com/justinjm/gcp-bigquery-migration/main/data/loan_200k.sql | gsutil cp - gs://${BUCKET}/loan_200k.sql
-
-
 ## load data into MSSQL databse ---------------------------------
-
 ## get service account `serviceAccountEmailAddress:`
 echo "Getting service account from recently created instance"
 SVC_ACCOUNT_INSTANCE=$(gcloud sql instances describe ${INSTANCE_NAME} --format="value(serviceAccountEmailAddress)")
@@ -37,7 +29,6 @@ gcloud sql import sql ${INSTANCE_NAME} gs://${BUCKET}/${DATA_FILE_SQL} \
 # https://cloud.google.com/sdk/gcloud/reference/sql/import
 
 ## load data into BQ  ---------------------------------
-
 ### create dataset
 bq mk ${BQ_DATASET}
 
