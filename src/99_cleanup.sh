@@ -17,9 +17,9 @@ if [[ "$choice" =~ [yY](es)* ]]; then
     ## GCS bucket (and all files within)
     # gsutil -m rm -r gs://${BUCKET}
     ## SQL instance 
-    # gcloud beta sql instances delete ${INSTANCE_NAME}
+    # gcloud beta sql instances delete ${INSTANCE_NAME} --quiet
     ## VM 
-    # gcloud compute instances delete ${INSTANCE_NAME} --delete-disks=all --zone=us-central1-a
+    # gcloud compute instances delete ${VM_INSTANCE_NAME} --delete-disks=all --zone=us-central1-a --quiet
     # https://cloud.google.com/sdk/gcloud/reference/compute/instances/delete
     ## BQ dataset 
     # bq rm -r -f -d ${PROJECT_ID}:${BQ_DATASET}
