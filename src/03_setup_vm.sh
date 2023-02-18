@@ -9,17 +9,9 @@ gcloud compute instances create ${VM_INSTANCE_NAME} \
     --project=${PROJECT_ID}\
     --zone=us-central1-a \
     --machine-type=e2-medium \
-    --network-interface=network-tier=PREMIUM,subnet=default \
     --metadata=startup-script='sudo apt-get update && sudo apt-get install -y git',enable-oslogin=true \
-    --maintenance-policy=MIGRATE \
-    --provisioning-model=STANDARD \
     --scopes=https://www.googleapis.com/auth/cloud-platform \
-    --tags=http-server,https-server \
-    --create-disk=auto-delete=yes,boot=yes,device-name=${VM_INSTANCE_NAME},image=projects/debian-cloud/global/images/debian-11-bullseye-v20230206,mode=rw,size=10,type=projects/${PROJECT_ID}/zones/us-central1-a/diskTypes/pd-balanced \
-    --no-shielded-secure-boot \
-    --shielded-vtpm \
-    --shielded-integrity-monitoring \
-    --reservation-affinity=any
+    --tags=http-server,https-server 
 
 ## get IP of newly created VM for adding to MSQQL Server instance 
 echo "Get IP address for whitelisting on MSSQL Server instance"
