@@ -15,7 +15,7 @@ gcloud compute instances create ${VM_INSTANCE_NAME} \
 
 ## get IP of newly created VM for adding to MSQQL Server instance 
 echo "Get IP address for whitelisting on MSSQL Server instance"
-VM_INSTANCE_IP=$(gcloud compute instances describe ${VM_INSTANCE_NAME} --format='get(networkInterfaces[0].accessConfigs[0].natIP)')
+VM_INSTANCE_IP=$(gcloud compute instances describe ${VM_INSTANCE_NAME} --zone=us-central1-a --format='get(networkInterfaces[0].accessConfigs[0].natIP)')
 echo "VM IP:" $VM_INSTANCE_IP
 # https://cloud.google.com/compute/docs/instances/view-ip-address#viewing_ip_addresses
 
