@@ -22,7 +22,7 @@ data-validation validate column \
     --tables-list demo.demo.loans=${PROJECT_ID}.${BQ_DATASET}.${BQ_TABLE_DATA} \
     --count '*' \
     --bq-result-handler ${PROJECT_ID}.${BQ_DATASET}.${BQ_TABLE_DVT_RESULTS} \
-    --labels tag=loans-loans201-2023-02-17
+    --labels tag=loans-loans201-2023-02-21
 ```
 
 ### 2) Run a row hash validation for all rows but filter only the failed records
